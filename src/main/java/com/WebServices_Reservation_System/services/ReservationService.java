@@ -6,10 +6,8 @@ import com.WebServices_Reservation_System.repositories.ReservationRepository;
 import com.WebServices_Reservation_System.dto.ReservationDTO;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebService;
-import jakarta.xml.bind.annotation.XmlRootElement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
@@ -63,7 +61,8 @@ public class ReservationService {
     }
 
     @WebMethod
-    public void deleteReservation(Long id) {
+    public String deleteReservation(Long id) {
         reservationRepository.deleteById(id);
+        return "Reservation supprimer avec succes";
     }
 }
